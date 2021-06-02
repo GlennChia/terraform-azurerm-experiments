@@ -1,0 +1,21 @@
+{
+    "name": "Azure CAF module",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "rover",
+    "containerUser" : "vscode",
+    "remoteUser": "vscode",
+    "workspaceFolder": "/tf/caf",
+    "settings": {
+        "files.eol": "\n",
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.tabSize": 2,
+        "terminal.integrated.scrollback": 8000,
+    },
+    "postCreateCommand": "sudo cp -R /tmp/.ssh-localhost/* ~/.ssh && sudo chmod 600 ~/.ssh/* && sudo chown -R $(whoami) /tf/caf && git config --global core.editor vi && pre-commit install && pre-commit autoupdate",
+    "extensions": [
+        "4ops.terraform",
+        "mutantdino.resourcemonitor",
+        "ms-azure-devops.azure-pipelines",
+        "omartawfik.github-actions-vscode"
+    ]
+}
